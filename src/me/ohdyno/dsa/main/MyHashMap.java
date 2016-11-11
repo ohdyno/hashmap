@@ -1,28 +1,30 @@
+package me.ohdyno.dsa.main;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class MyHashMap<Key, Value> {
+public class MyHashMap<Key, Value> {
     private static final int NOT_FOUND_INDEX = -1;
     private static final int DEFAULT_SIZE = 20;
     private int size;
     private List<List<Pair<Key, Value>>> valueLists;
 
-    MyHashMap() {
+    public MyHashMap() {
         valueLists = new ArrayList<>(DEFAULT_SIZE);
 
         for (int i = 0; i < DEFAULT_SIZE; i++)
             valueLists.add(new ArrayList<>());
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return size == 0;
     }
 
-    int size() {
+    public int size() {
         return size;
     }
 
-    void insert(Key key, Value value) {
+    public void insert(Key key, Value value) {
         List<Pair<Key, Value>> values = retrieveMatchedValues(key);
         Pair<Key, Value> pair = getPairWithMatchingKey(key, values);
         if (pair == null) {
@@ -33,7 +35,7 @@ class MyHashMap<Key, Value> {
         }
     }
 
-    Value get(Key key) {
+    public Value get(Key key) {
         List<Pair<Key, Value>> values = retrieveMatchedValues(key);
         Pair<Key, Value> pair = getPairWithMatchingKey(key, values);
         if (pair != null)
@@ -41,7 +43,7 @@ class MyHashMap<Key, Value> {
         return null;
     }
 
-    void delete(Key key) {
+    public void delete(Key key) {
         List<Pair<Key, Value>> values = retrieveMatchedValues(key);
         int pairIndex = getPairIndexWithMatchingKey(key, values);
         if (pairIndex != NOT_FOUND_INDEX) {

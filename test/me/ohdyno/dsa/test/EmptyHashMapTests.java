@@ -1,3 +1,6 @@
+package me.ohdyno.dsa.test;
+
+import me.ohdyno.dsa.main.MyHashMap;
 import org.junit.Before;
 import org.junit.Test;
 
